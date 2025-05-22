@@ -1,8 +1,7 @@
-pytubefix
 streamlit
 openai
-os
 pathlib
 pydub
 dotenv
+pytubefix.cli
 
