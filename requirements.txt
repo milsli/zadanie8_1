@@ -4,4 +4,6 @@ openai
 os
 pathlib
 pydub
+pytubefix.cli
+dotenv
 
