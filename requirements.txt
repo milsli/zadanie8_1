@@ -1,5 +1,4 @@
 pytubefix
-pytubefix.cli
 streamlit
 openai
 dotenv
