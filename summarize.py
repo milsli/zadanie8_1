@@ -24,6 +24,7 @@ def processing():
         st.text("Brakuje katalogu lub plików")
         st.text("należy w pierwszej kolejności uruchomić: python downloading.py")
         st.text("a w następnej kolejności: streamlit run summarize.py")
+        return
 
     f_number = len(filenames)
     if f_number > 0:
