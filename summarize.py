@@ -17,7 +17,13 @@ def get_openai_client():
 subfolder = "../"
 def processing():
     st.write("Wybrano folder : " + subfolder)
-    filenames = os.listdir(subfolder)
+
+    try:
+        filenames = os.listdir(subfolder)
+    except:
+        st.text("Brakuje katalogu lub plików")
+        st.text("należy w pierwszej kolejności uruchomić: python downloading.py")
+        st.text("a w następnej kolejności: streamlit run summarize.py")
 
     f_number = len(filenames)
     if f_number > 0:
