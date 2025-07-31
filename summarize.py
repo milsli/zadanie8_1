@@ -15,8 +15,6 @@ env = dotenv_values(".env")
 def get_openai_client():
     return OpenAI(api_key=env["OPENAI_API_KEY"])
 
-subfolder = ""
-
 def downloading(rok):
     urls = []
     if(rok == '2015'):
