@@ -16,6 +16,7 @@ def get_openai_client():
     return OpenAI(api_key=env["OPENAI_API_KEY"])
 
 def downloading(rok):
+    print("Subfolder: " + subfolder)
     urls = []
     if(rok == '2015'):
         urls = ['https://youtu.be/yMbpOZ9uJ-U', 'https://youtu.be/lryDr9TFa3c', 'https://youtu.be/lyv-5dd3hhU', 'https://youtu.be/YeuMI80YbvA'
@@ -186,6 +187,6 @@ with st.sidebar:
     
     st.write("Wybrałeś wykłady z roku ", option)
 
-    subfolder = "lectures" + option
+    subfolder = f"lectures{option}"
     st.button("Generuj", on_click=downloading, kwargs={"rok": option})
 
