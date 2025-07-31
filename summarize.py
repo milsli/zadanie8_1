@@ -16,7 +16,6 @@ def get_openai_client():
     return OpenAI(api_key=env["OPENAI_API_KEY"])
 
 def downloading(rok):
-    print("Subfolder: " + subfolder)
     urls = []
     if(rok == '2015'):
         urls = ['https://youtu.be/yMbpOZ9uJ-U', 'https://youtu.be/lryDr9TFa3c', 'https://youtu.be/lyv-5dd3hhU', 'https://youtu.be/YeuMI80YbvA'
@@ -60,7 +59,6 @@ def downloading(rok):
         yt = YouTube(url, on_progress_callback=on_progress)
         print(yt.title)
         ys = yt.streams.get_lowest_resolution()
-        subfolder
         ys.download(output_path=subfolder)
         counter += 1
                 
