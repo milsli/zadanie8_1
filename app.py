@@ -1,7 +1,6 @@
 import streamlit as st
 import boto3
 from pydub import AudioSegment
-import pydub
 import os
 import pathlib
 import subprocess
@@ -22,7 +21,7 @@ env = dotenv_values(".env")
 def get_openai_client():
     return OpenAI(api_key=env["OPENAI_API_KEY"])
 
-s3 = boto3.client('s3', endpoint_url=env["AWS_ENDPOINT_URL_S3"], aws_access_key_id=env["AWS_ACCESS_KEY_ID"],
+s3 = boto3.client('s3', aws_access_key_id=env["AWS_ACCESS_KEY_ID"],
     aws_secret_access_key=env["AWS_SECRET_ACCESS_KEY"])
 
 BUCKET_NAME = "phisicsvideo"
