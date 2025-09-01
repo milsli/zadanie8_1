@@ -17,11 +17,19 @@ def compress_mp3(file_path, bitrate="64k"):
 
 st.title("Generator streszczeń do wykładów z fizyki")
 env = dotenv_values(".env")
+
+if 'AWS_ENDPOINT_URL_S3' in st.secrets:
+    env["AWS_ENDPOINT_URL_S3"] = st.secrets["AWS_ENDPOINT_URL_S3"]
+if 'AWS_ACCESS_KEY_ID' in st.secrets:
+    env["AWS_ACCESS_KEY_ID"] = st.secrets["AWS_ACCESS_KEY_ID"]
+if 'AWS_SECRET_ACCESS_KEY' in st.secrets:
+    env["AWS_SECRET_ACCESS_KEY"] = st.secrets["AWS_SECRET_ACCESS_KEY"]    
+
 @st.cache_resource
 def get_openai_client():
     return OpenAI(api_key=env["OPENAI_API_KEY"])
 
-s3 = boto3.client('s3', aws_access_key_id=env["AWS_ACCESS_KEY_ID"],
+s3 = boto3.client('s3', endpoint_url=env["AWS_ENDPOINT_URL_S3"], aws_access_key_id=env["AWS_ACCESS_KEY_ID"],
     aws_secret_access_key=env["AWS_SECRET_ACCESS_KEY"])
 
 BUCKET_NAME = "phisicsvideo"
