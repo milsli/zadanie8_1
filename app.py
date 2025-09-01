@@ -18,6 +18,8 @@ def compress_mp3(file_path, bitrate="64k"):
 st.title("Generator streszczeń do wykładów z fizyki")
 env = dotenv_values(".env")
 
+if 'OPENAI_API_KEY' in st.secrets:
+    env["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]    
 if 'AWS_ENDPOINT_URL_S3' in st.secrets:
     env["AWS_ENDPOINT_URL_S3"] = st.secrets["AWS_ENDPOINT_URL_S3"]
 if 'AWS_ACCESS_KEY_ID' in st.secrets:
