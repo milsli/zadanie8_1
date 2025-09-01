@@ -1,6 +1,7 @@
 import streamlit as st
 import boto3
 from pydub import AudioSegment
+import pydub
 import os
 import pathlib
 import subprocess
