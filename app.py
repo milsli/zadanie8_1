@@ -147,6 +147,9 @@ def processing(rok):
 
         processedCounter += 1
         processing_progress.progress(int(100 * processedCounter / filmsNumber))
+
+        st.text_area("Streszczenie wykładu: ", summary.choices[0].message.content, height=300)
+
     processing_progress.text("Zakończono przetwarzanie plików.")
     processing_progress.progress(100)
 
