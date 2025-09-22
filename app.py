@@ -77,11 +77,6 @@ def download(rok):
 
     return film_dir, audio_dir, summary_dir, text_dir, filmsNumber
 
-
-
-
-
-
 def processing(rok):
     st.write("Wybrano rok wykładów : " + rok)
     film_dir, audio_dir, summary_dir, text_dir, filmsNumber = download(rok)
@@ -139,7 +134,7 @@ def processing(rok):
         summary = get_openai_client().chat.completions.create(
             model="gpt-4o",
             messages=[
-                {"role": "system", "content": "Streszczaj teksty w sposób jasny i rzeczowy."},
+                {"role": "system", "content": "Streszczaj teksty w sposób jasny i rzeczowy. W przypadku gdy tekst jest w języku angielskim, streszczaj w języku polskim."},
                 {"role": "user", "content": f"Podsumuj ten tekst:\n\n{transcript.text}"}
             ],
             temperature=0.5,      
